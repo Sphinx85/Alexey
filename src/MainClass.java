@@ -1,22 +1,23 @@
-public class MainClass {
-    public static void main(String[] args) {
+/*
+1. Необходимо написать два метода, которые делают следующее:
+1) Создают одномерный длинный массив, например:
+static final int size = 10000000;
+static final int h = size / 2;
+float[] arr = new float[size];
+2) Заполняют этот массив единицами;
+3) Засекают время выполнения: long a = System.currentTimeMillis();
+4) Проходят по всему массиву и для каждой ячейки считают новое значение по формуле:
+arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+5) Проверяется время окончания метода System.currentTimeMillis();
+6) В консоль выводится время работы: System.out.println(System.currentTimeMillis() - a);
+Отличие первого метода от второго:
+Первый просто бежит по массиву и вычисляет значения.
+Второй разбивает массив на два массива, в двух потоках высчитывает новые значения и потом склеивает эти массивы обратно
+ в один.
 
-        Task2 phoneBook = new Task2();
-
-        phoneBook.add("Иванов", "8999123321");
-        phoneBook.add("Иванов", "8912155326");
-        phoneBook.add("Петров", "8917155552");
-        phoneBook.add("Петров", "8913455672");
-        phoneBook.add("Иванов", "899999999");
-        phoneBook.add("Сидоров", "899111111");
-        phoneBook.add("Петров", "89923231999");
-        phoneBook.add("Козлов", "8888123113");
-        phoneBook.add("Сидоров", "8324325234");
-
-        System.out.println("Иванов(ы): " + phoneBook.get("Иванов"));
-        System.out.println("Сидоров(ы): " + phoneBook.get("Сидоров"));
-        System.out.println("Петров(ы): " + phoneBook.get("Петров"));
-        System.out.println("Козлов(ы) :" + phoneBook.get("Козлов"));
-
-    }
+Для первого метода надо считать время только на цикл расчета:
+for (int i = 0; i < size; i++) {
+arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
 }
+Для второго метода замеряете время разбивки массива на 2, просчета каждого из двух массивов и склейки.
+ */
