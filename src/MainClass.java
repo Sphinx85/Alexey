@@ -1,21 +1,25 @@
 public class MainClass {
+
     public static void main(String[] args) {
 
         String [][] arr = new String[][]{
-                {"1", "2", "3", "43"},
+                {"1", "2", "3", "1"},
                 {"1", "22", "3", "4"},
-                {"1", "215", "3", "4"},
-                {"1", "2", "3", "o", "e"}
+                {"1", "1", "3", "4"},
+                {"1", "2", "3", "о", "е"} // исключение по заданию 2 выбрасывает на "о", и не переходит дальше к "е". Почему?
         };
-
-        HomeTask.task1(arr);
-        System.out.println("__________________________");
-        HomeTask.task1(arr);
 
         try {
             HomeTask.task1(arr);
+            System.out.println("__________________________");
+        } catch (Exception a){
+            a.printStackTrace();
+        }
+
+        try {
             HomeTask.task2(arr);
-        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException a){
+            System.out.println("__________________________");
+        } catch (Exception a){
             a.printStackTrace();
         }
     }
@@ -33,6 +37,5 @@ public class MainClass {
 //
 //3. В методе main() вызвать полученный метод, обработать возможные исключения MySizeArrayException и
 // MyArrayDataException и вывести результат расчета.
-
 
 
