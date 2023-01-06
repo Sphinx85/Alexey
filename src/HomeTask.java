@@ -9,11 +9,12 @@ public class HomeTask extends  Exception {
     }
 
     public static void task2(String[][] arr) throws IllegalArgumentException {
-            for (int i = 0; i < arr.length; i++) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
                 for (int j = 0; j < arr[i].length; j++) {
-                    int x = Integer.parseInt(arr[i][j]);// как их просуммировать?
-                    System.out.println(x);
-                }
+                    int x = Integer.parseInt(arr[i][j]);
+                    sum = sum + x; // как просуммировать все столбцы массива?
+                }System.out.println(sum);
             }
     }
 }
