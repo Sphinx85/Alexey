@@ -6,23 +6,7 @@ public class Plate {
         this.amount = amount;
         this.isEmpty = false;
     }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public boolean isEmpty() {
-        return isEmpty;
-    }
-
-    public void setEmpty(boolean empty) {
-        isEmpty = empty;
-    }
-
+    
     public boolean checkFood(int appetite) {
         if ((amount - appetite) >= 0){
             return true;
@@ -30,8 +14,8 @@ public class Plate {
     }
 
     public void increaseFood() {
-        this.amount = amount+100;
-        System.out.println("В миску добавили 100 грамм корма");
+        this.amount = amount+15;
+        System.out.println("В миску добавили " + amount + " граммов корма");
     }
 
     public void decreaseFood(int appetite) {
